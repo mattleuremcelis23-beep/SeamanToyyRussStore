@@ -268,6 +268,16 @@
     }
   ];
 
+  const storeScriptUrl = document.currentScript ? document.currentScript.src : document.baseURI;
+  const assetUrl = path => path.startsWith('/assets/')
+    ? new URL(`./${path.slice(1)}`, storeScriptUrl).href
+    : path;
+
+  PRODUCTS.forEach(product => {
+    product.image = assetUrl(product.image);
+    product.images = product.images.map(assetUrl);
+  });
+
   const CATEGORIES = [
     { key: 'plush', name: 'Plush toys', icon: '🧸', description: 'Soft companions for every adventure.' },
     { key: 'action-figures', name: 'Action figures', icon: '🦸', description: 'Heroes, characters, and story starters.' },
