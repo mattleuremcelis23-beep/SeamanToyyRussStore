@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Seaman Toy Store icon">
+  <defs>
+    <linearGradient id="g" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#a65dfb"/>
+      <stop offset="50%" stop-color="#ff5da2"/>
+      <stop offset="100%" stop-color="#ffd23f"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="#120B22"/>
+  <path d="M18 42.5L32 17l14 25.5h-9.5L32 31l-4.5 11.5H18zm14-20.6l7.6 13.8h-15.2L32 21.9z" fill="url(#g)"/>
+</svg>
