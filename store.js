@@ -268,7 +268,8 @@
     }
   ];
 
-  const storeScriptUrl = document.currentScript ? document.currentScript.src : document.baseURI;
+  const storeScript = Array.from(document.scripts).find(script => script.src.endsWith('/store.js'));
+  const storeScriptUrl = storeScript ? storeScript.src : document.baseURI;
   const assetUrl = path => path.startsWith('/assets/')
     ? new URL(`./${path.slice(1)}`, storeScriptUrl).href
     : path;
@@ -294,7 +295,7 @@
   const stars = rating => '★★★★★'.slice(0, Math.round(rating)) + '☆☆☆☆☆'.slice(0, 5 - Math.round(rating));
 
   function buildProductUrl(product) {
-    return `/products/${product.slug}/`;
+    return new URL(`./products/${product.slug}/`, storeScriptUrl).href;
   }
 
   function getProductBySlug(slug) {
