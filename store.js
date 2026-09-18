@@ -268,7 +268,7 @@
     }
   ];
 
-  const storeScript = Array.from(document.scripts).find(script => script.src.endsWith('/store.js'));
+  const storeScript = Array.from(document.scripts).find(script => new URL(script.src).pathname.endsWith('/store.js'));
   const storeScriptUrl = storeScript ? storeScript.src : document.baseURI;
   const assetUrl = path => path.startsWith('/assets/')
     ? new URL(`./${path.slice(1)}`, storeScriptUrl).href
